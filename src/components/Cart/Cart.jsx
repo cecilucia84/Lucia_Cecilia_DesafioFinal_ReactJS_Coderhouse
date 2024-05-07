@@ -1,7 +1,7 @@
-import { useCart } from "../context/CartContext"
-import CartItem from "./CartItem/CartItem"
-import Button from "./Button/Button"
-import './Cart.module.css'
+import { useCart } from "../../context/CartContext"
+import CartItem from "../CartItem/CartItem"
+import Button from "../Button/Button"
+import styles from '../Cart/Cart.module.css' // Importa los estilos como un objeto
 
 const CartView = () => {
   const { cart, clearCart, totalQuantity, totalPrice } = useCart()
@@ -9,7 +9,7 @@ const CartView = () => {
 
   if (totalQuantity === 0) {
     return (
-      <section >
+      <section className={styles.section}> 
         <h2>No tiene productos agregados</h2>
         <Button to='/'>Ver Productos</Button>
       </section>
@@ -17,7 +17,7 @@ const CartView = () => {
   }
 
   return (
-    <section >
+    <section className={styles.section}>
       <h2>Productos agregados</h2>
       {cart.map(prod => <CartItem key={prod.id} {...prod} />)}
       <div >
