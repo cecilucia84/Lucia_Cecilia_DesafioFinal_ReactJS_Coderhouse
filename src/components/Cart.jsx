@@ -1,6 +1,7 @@
 import { useCart } from "../context/CartContext"
 import CartItem from "./CartItem/CartItem"
 import Button from "./Button/Button"
+import './Cart.module.css'
 
 const CartView = () => {
   const { cart, clearCart, totalQuantity, totalPrice } = useCart()
@@ -21,7 +22,7 @@ const CartView = () => {
       {cart.map(prod => <CartItem key={prod.id} {...prod} />)}
       <div >
         <Button onClick={clearCart} >Vaciar Carrito</Button>
-        <Button to={'/checkout'}>checkout</Button>
+        <Button to={'/checkout'}>Finalizar Compra</Button>
         <div>
           <h4><strong>Total: </strong>$ {totalPrice}</h4>
 

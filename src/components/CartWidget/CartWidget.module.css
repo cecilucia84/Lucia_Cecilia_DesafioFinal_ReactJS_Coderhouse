@@ -1,0 +1,21 @@
+.cart {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .cart img {
+    mix-blend-mode: multiply;
+    width: 80px;
+  }
+  
+  .cart span {
+    color: pink;
+    padding-left: 1rem;
+    font-weight:bold;
+  }
+  
+
+
+  
