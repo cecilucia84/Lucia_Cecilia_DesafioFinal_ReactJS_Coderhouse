@@ -1,0 +1,44 @@
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .d-flex div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 1rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .number {
+    margin: 0 1rem;
+    margin-top: 2rem;
+  }
+  

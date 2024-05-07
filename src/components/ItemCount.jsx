@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaPlus, FaMinus } from "react-icons/fa";
+import styles from './ItemCount.module.css'
 
 export const ItemCount = ({ initial = 1, onAdd, stock }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -17,15 +18,13 @@ export const ItemCount = ({ initial = 1, onAdd, stock }) => {
   }
 
   return (
-    <div className="d-flex">
-      <div>
-        <button ><FaMinus onClick={decrement} /></button>
-
-        <p>{quantity}</p>
-        <button ><FaPlus onClick={increment} /></button>
-
+    <div className={styles['d-flex']}>
+      <div className={styles.buttonContainer}>
+        <button className="button" onClick={decrement}><FaMinus /></button>
+        <p className={styles.number}>{quantity}</p> 
+        <button className="button" onClick={increment}><FaPlus /></button>
+        <button onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
       </div>
-      <button onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
     </div>
-  );
-};
+);
+}
