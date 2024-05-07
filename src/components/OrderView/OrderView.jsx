@@ -1,21 +1,20 @@
-import Button from '../Button/Button'
-import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer'
-import OrderViewItem from '../OrderViewItem/OrderViewItem'
-import classes from './OrderView.module.css'
-import { orderData } from '../../services/firebase/firestore/order'
-import { useAsync } from '../../hooks/useAsync'
+import Button from '../Button/Button';
+import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer';
+import OrderViewItem from '../OrderViewItem/OrderViewItem';
+import classes from './OrderView.module.css';
+import { orderData } from '../../services/firebase/firestore/order';
+import { useAsync } from '../../hooks/useAsync';
 
 const OrderView = ({ orderSnapshot }) => {
-
-    const asyncFunction = () => orderData(orderSnapshot)
-    const { data, loading, error } = useAsync(asyncFunction, [orderSnapshot])
+    const asyncFunction = () => orderData(orderSnapshot);
+    const { data, loading, error } = useAsync(asyncFunction, [orderSnapshot]);
 
     if (loading) {
-        return <h2>Solo un momento mas...</h2>
+        return <h2>Solo un momento más...</h2>;
     }
 
     if (error) {
-        return showNotification('error', 'Error al generar la orden')
+        return <p className={classes.notification}>Error al generar la orden</p>;
     }
 
     return (
@@ -30,11 +29,13 @@ const OrderView = ({ orderSnapshot }) => {
                     <OrderViewItem item={data.item} />
                 </div>
                 <p className={classes.total}>Total de la compra: $ {data.total}</p>
-                <p>Pronto nos pondremos en contacto con usted</p>
-                <Button to={'/'}>Volver al inicio</Button>
+                <p className={classes.contact}>Pronto nos pondremos en contacto con usted</p>
+                <Button className={classes.button} to={'/'}>
+                    Volver al inicio
+                </Button>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default OrderView
+export default OrderView;

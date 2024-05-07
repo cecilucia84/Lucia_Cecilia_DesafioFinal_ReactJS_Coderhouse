@@ -3,7 +3,7 @@
     background-color: blue;
     padding: .5rem 1rem;
     font-size: 1.4rem;
-    border: 2px solid red;
+    border: 3px solid rgb(245, 76, 234);
     border-radius: 1rem;
     min-width: 7rem;
     text-decoration: none;
@@ -18,7 +18,7 @@
 
 .button:hover {
     background-color: darkblue;
-    color: red;
+    color: rgb(241, 111, 202);
     border: 2px solid blue;
     cursor: pointer;
     scale: 1.1;

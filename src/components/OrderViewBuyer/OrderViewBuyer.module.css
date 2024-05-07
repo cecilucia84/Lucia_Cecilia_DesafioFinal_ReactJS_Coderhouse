@@ -1,0 +1,23 @@
+.buyer {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .buyer h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .buyer p {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .buyer p:last-child {
+    margin-bottom: 0;
+  }
+  
