@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom"
-import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom";
+import ItemList from "../ItemList/ItemList";
 import { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
@@ -10,18 +10,18 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     const db = getFirestore();
-    const productsCollection = collection(db, 'products'); // Asegúrate de que 'products' es el nombre correcto de tu colección
+    const productsCollection = collection(db, 'products'); 
 
     getDocs(productsCollection).then((querySnapshot) => {
-      const productsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      if (!categoryId) {
-        setProducts(productsData);
-      } else {
-        const filtered = productsData.filter(
+      let productsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      if (categoryId) {
+        productsData = productsData.filter(
           (product) => product.categoria === categoryId
         );
-        setProducts(filtered);
       }
+      // Ordena los productos por categoría
+      productsData.sort((a, b) => a.categoria.localeCompare(b.categoria));
+      setProducts(productsData);
     });
   }, [categoryId]);
 
@@ -35,4 +35,4 @@ const ItemListContainer = ({ greeting }) => {
   )
 }
 
-export default ItemListContainer
+export default ItemListContainer;
