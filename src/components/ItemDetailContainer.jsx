@@ -1,25 +1,23 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import {getFirestore , doc, getDoc} from 'firebase/firestore';
+import { useParams } from "react-router-dom"
+import { ItemDetail } from "./ItemDetail"
+import { getProductById } from '../services/firebase/firestore/products'
+import { useAsync } from '../hooks/useAsync'
 
-import { ItemDetail } from "./ItemDetail";
+const ItemDetailContainer = () => {
+  const { id } = useParams()
 
+  const asyncFunction = () => getProductById(id)
+  const { data: product, error, loading } = useAsync(asyncFunction, [id])
 
-export const ItemDetailContainer = () => {
-  const [product, setProduct] = useState(null);
+  if (loading) {
+    return <h2>Cargando...</h2>
+  }
 
-  const { itemId } = useParams();
-
-  useEffect(() => {
-    const db = getFirestore();
-    const docRef = doc(db, 'products', itemId);
-
-    getDoc(docRef).then((snapshot) => {
-      setProduct({ id: snapshot.id, ...snapshot.data() });
-    });
-  }, [itemId]);
-  
-  if (!product) return <div>Cargando...</div>;
-
-  return < ItemDetail product={product} />; 
+  return (
+    <section className='container'>
+      <ItemDetail {...product} />
+    </section>
+  )
 }
+
+export default ItemDetailContainer

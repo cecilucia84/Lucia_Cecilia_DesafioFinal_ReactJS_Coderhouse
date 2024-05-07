@@ -1,27 +1,29 @@
 import Container from "react-bootstrap/Container";
-import { useContext } from "react";
-
 import { ItemCount } from "./ItemCount";
-import { CartContext } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
 
-export const ItemDetail = ({ product }) => {
-    const { addItem } = useContext(CartContext);
+export const ItemDetail = ({ id, name, img, price, stock, description }) => {
+    const { addItem, getProductQuantity, cart } = useCart()
 
-    const add = (quantity) => {
-        addItem(product, quantity);    
-    };
+    const handleOnAdd = (quantity) => {
+        const objProduct = { id, name, img, price, quantity };
+        addItem(objProduct);
+    }
+
+    console.log('Detail: ', cart);
+    const productQuantity = getProductQuantity(id);
 
     return (
         <Container className="mt-5">
-            <h1>{product.titulo}</h1>
-            <img src={product.imagen} 
-            style={{height:450, width: 'auto'}} 
-            alt={product.titulo} 
+            <h1>{name}</h1>
+            <img src={img}
+                style={{ height: 450, width: 'auto' }}
+                alt={name}
             />
-            <p>{product.descripcion}</p>
-            <div>{`Stock ${product.stock}`}</div>
-            <div>{`Precio ${product.precio}`}</div>
-            <ItemCount stock={product.stock} onAdd={add}  />
+            <p>{description}</p>
+            <div>{`Stock ${stock}`}</div>
+            <div>{`Precio ${price}`}</div>
+            <ItemCount stock={stock} onAdd={handleOnAdd} initial={productQuantity} />
         </Container>
     );
 };

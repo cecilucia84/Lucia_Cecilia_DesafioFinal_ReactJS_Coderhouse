@@ -1,37 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { FaPlus, FaMinus } from "react-icons/fa";
 
-export const ItemCount = ({ onAdd, stock }) => {
-  const [count, setQuantity] = useState(1);
+export const ItemCount = ({ initial = 1, onAdd, stock }) => {
+  const [quantity, setQuantity] = useState(initial);
 
-  const handleDecrease = () => {
-    if (count > 1) setQuantity((prev) => prev - 1);
-  };
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
 
-  const handleIncrease = () => {
-    if (stock > count) setQuantity((prev) => prev + 1);
-  };
-
-  const handleAdd = () => {
-    onAdd(count);
-    setQuantity(1); 
-  };
+  const increment = () => {
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
+    }
+  }
 
   return (
     <div className="d-flex">
-      <div
-        style={{ padding: "0 10px", color: "red", fontWeight: "bold" }}
-        onClick={handleDecrease}
-      >
-        -
+      <div>
+        <button ><FaMinus onClick={decrement} /></button>
+
+        <p>{quantity}</p>
+        <button ><FaPlus onClick={increment} /></button>
+
       </div>
-      <input type="number" value={count} onChange={(e) => setQuantity(Number(e.target.value))}/>
-      <div
-        style={{ padding: "0 10px", color: "red", fontWeight: "bold" }}
-        onClick={handleIncrease}
-      >
-        +
-      </div>
-      <button type="button" onClick={handleAdd}>Agregar al carrito</button>
+      <button onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
     </div>
   );
 };
