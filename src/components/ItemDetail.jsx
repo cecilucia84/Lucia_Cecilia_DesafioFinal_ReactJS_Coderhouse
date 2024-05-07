@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import Container from "react-bootstrap/Container";
 import { ItemCount } from "./ItemCount";
 import { useCart } from "../context/CartContext";
 
 export const ItemDetail = ({ id, name, img, price, stock, description }) => {
+    const [currentStock, setCurrentStock] = useState(stock);
     const { addItem, getProductQuantity, cart } = useCart()
 
     const handleOnAdd = (quantity) => {
         const objProduct = { id, name, img, price, quantity };
         addItem(objProduct);
+        setCurrentStock(currentStock - quantity);
     }
 
     console.log('Detail: ', cart);
@@ -21,10 +24,9 @@ export const ItemDetail = ({ id, name, img, price, stock, description }) => {
                 alt={name}
             />
             <p>{description}</p>
-            <div>{`Stock ${stock}`}</div>
+            <div>{`Stock ${currentStock}`}</div>
             <div>{`Precio ${price}`}</div>
-            <ItemCount stock={stock} onAdd={handleOnAdd} initial={productQuantity} />
+            <ItemCount stock={currentStock} onAdd={handleOnAdd} initial={productQuantity} />
         </Container>
     );
 };
-
