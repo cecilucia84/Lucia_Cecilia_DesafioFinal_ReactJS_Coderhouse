@@ -18,12 +18,12 @@ export const ItemCount = ({ initial = 1, onAdd, stock }) => {
   }
 
   return (
-    <div className={styles['d-flex']}>
+    <div className={styles.dFlex}>
       <div className={styles.buttonContainer}>
-        <button className="button" onClick={decrement}><FaMinus /></button>
+        <button className={styles.button} onClick={decrement}><FaMinus /></button>
         <p className={styles.number}>{quantity}</p> 
-        <button className="button" onClick={increment}><FaPlus /></button>
-        <button onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
+        <button className={styles.button} onClick={increment}><FaPlus /></button>
+        <button className={styles.button} onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
       </div>
     </div>
 );

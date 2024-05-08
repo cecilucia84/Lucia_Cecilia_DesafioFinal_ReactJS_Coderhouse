@@ -1,18 +1,18 @@
 
-.d-flex {
+.dFlex {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
   }
   
-  .d-flex div {
+  .dFlex div {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
-  button {
+  .button {
     background-color: #007bff;
     border: none;
     color: white;
@@ -27,7 +27,7 @@
     border-radius: 12px;
   }
   
-  button:disabled {
+  .button:disabled {
     background-color: #cccccc;
     color: #666666;
   }
