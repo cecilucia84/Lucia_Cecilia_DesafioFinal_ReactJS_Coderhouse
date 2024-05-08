@@ -7,8 +7,9 @@
   }
   
   .loading {
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
+    font-family:sans-serif
   }
   
   .itemDetailContainer {

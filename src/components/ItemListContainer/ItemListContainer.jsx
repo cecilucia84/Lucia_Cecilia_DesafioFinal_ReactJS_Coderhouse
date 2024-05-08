@@ -3,6 +3,8 @@ import ItemList from "../ItemList/ItemList";
 import { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
+import styles from './ItemListContainer.module.css';
+
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
 
@@ -25,10 +27,10 @@ const ItemListContainer = ({ greeting }) => {
     });
   }, [categoryId]);
 
-  if (!products.length) return <div>Cargando...</div>;
+  if (!products.length) return <div className={styles.loading}>Cargando...</div>;
 
   return (
-    <section className="container">
+    <section className={styles.container}>
       <h2>{greeting}</h2>
       <ItemList products={products} />
     </section>
