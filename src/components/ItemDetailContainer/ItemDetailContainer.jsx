@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
 
   return (
     <section className={styles.container}> 
-      <div className={styles["item-detail-container"]}>
+      <div className={styles.itemDetailContainer}>
         <ItemDetail {...product} />
       </div>
     </section>
