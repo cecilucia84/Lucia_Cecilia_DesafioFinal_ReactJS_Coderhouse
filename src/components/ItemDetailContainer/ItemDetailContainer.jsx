@@ -13,12 +13,12 @@ const ItemDetailContainer = () => {
   const { data: product, error, loading } = useAsync(asyncFunction, [id]);
 
   if (loading) {
-    return <h2 className={styles.loading}>Cargando...</h2>; // Utiliza la clase CSS del módulo
+    return <h2 className={styles.loading}>Cargando...</h2>;
   }
 
   return (
-    <section className={styles.container}> {/* Utiliza la clase CSS del módulo */}
-      <div className={styles["item-detail-container"]}> {/* Utiliza la clase CSS del módulo */}
+    <section className={styles.container}> 
+      <div className={styles["item-detail-container"]}>
         <ItemDetail {...product} />
       </div>
     </section>
