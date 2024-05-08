@@ -1,0 +1,55 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 5rem;
+    
+  }
+  
+  .loading {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  /* Estilos para el contenedor del detalle del artículo */
+  .item-detail-container {
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    padding: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para el título del detalle del artículo */
+  .item-detail-title {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+
+  }
+  
+  /* Estilos para la descripción del detalle del artículo */
+  .item-detail-description {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el precio del detalle del artículo */
+  .item-detail-price {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para el stock del detalle del artículo */
+  .item-detail-stock {
+    font-size: 16px;
+    color: #888;
+  }
+  
+  /* Estilos para otros detalles del artículo */
+  .item-detail-other {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  

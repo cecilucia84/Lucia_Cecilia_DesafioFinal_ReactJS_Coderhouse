@@ -1,0 +1,45 @@
+.card {
+    width: 20rem;
+    margin-top: 2rem;
+    margin-bottom: 10px;
+    border-radius: 5rem;
+  }
+  
+  .image {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .title {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin-bottom: 10px;
+  }
+  
+  .category {
+    font-style: italic;
+    color: #666;
+  }
+  
+  .price {
+    font-weight: bold;
+  }
+  
+  .stock {
+    font-weight: bold;
+    color: #c60c82; 
+  }
+  
+  .link {
+    align-self: center;
+    margin-top: 10px;
+  }

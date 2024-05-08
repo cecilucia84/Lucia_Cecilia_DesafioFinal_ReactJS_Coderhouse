@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Container from "react-bootstrap/Container";
-import { ItemCount } from "./ItemCount";
-import { useCart } from "../context/CartContext";
+import { ItemCount } from "../ItemCount/ItemCount";
+import { useCart } from "../../context/CartContext";
 
 export const ItemDetail = ({ id, name, img, price, stock, description }) => {
     const [currentStock, setCurrentStock] = useState(stock);

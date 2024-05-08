@@ -1,7 +1,7 @@
 import { useCart } from "../../context/CartContext"
 import CartItem from "../CartItem/CartItem"
 import Button from "../Button/Button"
-import styles from '../Cart/Cart.module.css' // Importa los estilos como un objeto
+import styles from '../Cart/Cart.module.css' 
 
 const CartView = () => {
   const { cart, clearCart, totalQuantity, totalPrice } = useCart()
