@@ -21,7 +21,7 @@ const ItemListContainer = ({ greeting }) => {
           (product) => product.categoria === categoryId
         );
       }
-      // Ordena los productos por categoría
+     
       productsData.sort((a, b) => a.categoria.localeCompare(b.categoria));
       setProducts(productsData);
     });
